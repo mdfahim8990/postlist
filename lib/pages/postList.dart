@@ -85,20 +85,6 @@ bool  isLoading = false;
   }
 
 
-  Future<void> fetchData1() async {
-    final response = await http.get(Uri.parse('http://118.179.81.91:80/personnel/api/employees/'));
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      setState(() {
-        EmployeeResponse employeeResponse =
-        EmployeeResponse.fromJson(data);
-        employees = employeeResponse.data;
-      });
-    } else {
-      throw Exception('Failed to load data');
-    }
-  }
-
   @override
   void initState()  {
     // TODO: implement initState
