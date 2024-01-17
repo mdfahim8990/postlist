@@ -41,8 +41,7 @@ class _PostListPageState extends State<PostListPage> {
   }
 
   Future<void> fetchData() async {
-    // Define the API endpoint URL
-    int pp =1;
+
     String apiUrl = "http://118.179.81.91:80/personnel/api/employees/?page=3";
 
     // Define your Basic Authentication credentials
@@ -65,8 +64,7 @@ class _PostListPageState extends State<PostListPage> {
 
     // Check the status code to see if the request was successful
     if (response.statusCode == 200) {
-pp++;
-      // Parse the response data (assuming it's JSON)
+
       final Map<String, dynamic> data = json.decode(response.body);
 
       setState(() {
@@ -76,7 +74,6 @@ pp++;
         employeeList.addAll(employeeResponse.data);
         for (nextPage; nextPage <= 7; nextPage++) {
 
-        pp++;
         print(nextPage);
        // fetchData();
       }
